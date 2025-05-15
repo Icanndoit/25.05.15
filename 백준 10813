@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int n, m, * arr;
+	
+	cin >> n >> m;
+	arr = new int[n];
+	for (int i = 0; i < n; i++)
+		arr[i] = i + 1;
+
+	for (int i = 0; i < m; i++)
+	{
+		int a, b;
+		cin >> a >> b;
+		if (a != b) {
+			int tmp = arr[a - 1];
+			arr[a - 1] = arr[b - 1];
+			arr[b - 1] = tmp;
+		}
+	}
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+
+	cout << "\n";
+	delete[]arr;
+	return 0;
+}
